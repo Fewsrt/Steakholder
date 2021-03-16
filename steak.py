@@ -28,6 +28,9 @@ relay7 = 13
 relay8 = 11
 #statustimer = '0'
 
+x3 = ''
+x4 = ''
+
 
 GPIO.setmode(GPIO.BOARD)
 #GPIO.setmode(GPIO.BCM)
@@ -88,9 +91,13 @@ def v3_write_handler(value):
         print("relay1-work")
     else:
         GPIO.output(relay3,GPIO.LOW)
-        GPIO.output(relay1,GPIO.LOW)
+        if x4 == 1:
+            GPIO.output(relay1,GPIO.HIGH)
+            print("relay1-work")
+        else:
+            GPIO.output(relay1,GPIO.LOW)
+            print("relay1-not-work")
         print("relay3-not-work")
-        print("relay1-not-work")
 
 @blynk.on("V4")
 def v4_write_handler(value):
@@ -100,12 +107,15 @@ def v4_write_handler(value):
         GPIO.output(relay4,GPIO.HIGH)
         GPIO.output(relay1,GPIO.HIGH)
         print("relay4-work")
-        print("relay1-work")
     else:
         GPIO.output(relay4,GPIO.LOW)
-        GPIO.output(relay1,GPIO.LOW)
+        if x3 == 1:
+            GPIO.output(relay1,GPIO.HIGH)
+            print("relay1-work")
+        else:
+            GPIO.output(relay1,GPIO.LOW)
+            print("relay1-not-work")
         print("relay4-not-work")
-        print("relay1-not-work")
 
 @blynk.on("V5")
 def v5_write_handler(value):
