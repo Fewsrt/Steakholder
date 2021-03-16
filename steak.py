@@ -82,6 +82,7 @@ def v2_write_handler(value):
 def v3_write_handler(value):
     #print('Current slider value: {}'.format(value[0]))
     x3 = format(value[0])
+    print(x3)
     if x3 == "1":
         GPIO.output(relay3,GPIO.HIGH)
         GPIO.output(relay1,GPIO.HIGH)
@@ -103,6 +104,7 @@ def v3_write_handler(value):
 def v4_write_handler(value):
     #print('Current slider value: {}'.format(value[0]))
     x4 = format(value[0])
+    print(x4)
     if x4 == "1":
         GPIO.output(relay4,GPIO.HIGH)
         GPIO.output(relay1,GPIO.HIGH)
