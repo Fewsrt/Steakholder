@@ -9,7 +9,7 @@ import time
 #import adafruit_shtc3
 import RPi.GPIO as GPIO
 
-# time.sleep(40)
+time.sleep(40)
 
 BLYNK_AUTH = 'S2nsQqctQF1oAwCumBtBJrKQZ7FdgjU4'
 
