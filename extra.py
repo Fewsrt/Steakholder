@@ -5,12 +5,12 @@ from gpiozero import CPUTemperature
 
 time.sleep(40)
 
-#cmsensor1
+# cmsensor1
 #BLYNK_AUTH = 'nD-SwPo3-WpMrvAbdksIFa4YnP14l9-A'
 
-#cmsensor2
+# cmsensor2
 BLYNK_AUTH = 'S2nsQqctQF1oAwCumBtBJrKQZ7FdgjU4'
-blynk = BlynkLib.Blynk(BLYNK_AUTH,server='blynk.honey.co.th',port=8080)
+blynk = BlynkLib.Blynk(BLYNK_AUTH, server='blynk.honey.co.th', port=8080)
 
 while True:
     blynk.run()
@@ -25,6 +25,5 @@ while True:
     blynk.virtual_write(21, "Temp CPU : " + str(cpu.temperature) + "  C")
     blynk.virtual_write(22, cpu.temperature)
     print(cpu.temperature)
-    print ("IP:", ipaddr, " Host:", host)
+    print("IP:", ipaddr, " Host:", host)
     time.sleep(5)
-
