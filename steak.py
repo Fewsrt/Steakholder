@@ -89,7 +89,7 @@ def v3_write_handler(value):
         print("relay1-work")
     else:
         GPIO.output(relay3,GPIO.LOW)
-        if x4 == 1:
+        if x4 == "1":
             GPIO.output(relay1,GPIO.HIGH)
             print("relay1-work")
         else:
@@ -107,7 +107,7 @@ def v4_write_handler(value):
         print("relay4-work")
     else:
         GPIO.output(relay4,GPIO.LOW)
-        if x3 == 1:
+        if x3 == "1":
             GPIO.output(relay1,GPIO.HIGH)
             print("relay1-work")
         else:
