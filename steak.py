@@ -96,6 +96,7 @@ def v3_write_handler(value):
         else:
             GPIO.output(relay1,GPIO.LOW)
             print("relay1-not-work")
+            print(x3)
         print("relay3-not-work")
 
 @blynk.on("V4")
@@ -115,6 +116,7 @@ def v4_write_handler(value):
         else:
             GPIO.output(relay1,GPIO.LOW)
             print("relay1-not-work")
+            print(x3)
         print("relay4-not-work")
 
 @blynk.on("V5")
