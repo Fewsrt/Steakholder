@@ -21,20 +21,20 @@ sht = adafruit_shtc3.SHTC3(i2c)
 @blynk.on("connected")
 def blynk_connected():
     print("Updating V1,V2,V3 values from the server...")
-    blynk.sync_virtual(17, 18)
+    blynk.sync_virtual(40, 41)
     print("status OK")
 
 
-@blynk.on("readV17")
-def v17_read_handler():
+@blynk.on("readV40")
+def v40_read_handler():
     temperature, relative_humidity = sht.measurements
-    blynk.virtual_write(17, sht.temperature)
+    blynk.virtual_write(40, sht.temperature)
 
 
-@blynk.on("readV18")
-def v18_read_handler():
+@blynk.on("readV41")
+def v41_read_handler():
     temperature, relative_humidity = sht.measurements
-    blynk.virtual_write(18, sht.relative_humidity)
+    blynk.virtual_write(41, sht.relative_humidity)
 
 
 while True:
