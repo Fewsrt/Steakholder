@@ -27,18 +27,20 @@ def blynk_connected():
     print("status OK")
 
 
-@blynk.on("readV40")
-def v40_read_handler():
-    blynk.virtual_write(40, temperature)
+# @blynk.on("readV40")
+# def v40_read_handler():
+#     blynk.virtual_write(40, temperature)
 
 
-@blynk.on("readV41")
-def v41_read_handler():
-    blynk.virtual_write(41, relative_humidity)
+# @blynk.on("readV41")
+# def v41_read_handler():
+#     blynk.virtual_write(41, relative_humidity)
 
 
 while True:
     blynk.run()
+    blynk.virtual_write(40, temperature)
+    blynk.virtual_write(41, relative_humidity)
     print("Temperature: %0.2f" % temperature)
     print("Humidity: %0.2f" % relative_humidity)
     print("")
