@@ -9,6 +9,8 @@ import time
 #import adafruit_shtc3
 import RPi.GPIO as GPIO
 
+time.sleep(40)
+
 BLYNK_AUTH = 'S2nsQqctQF1oAwCumBtBJrKQZ7FdgjU4'
 
 blynk = BlynkLib.Blynk(BLYNK_AUTH, server='blynk.honey.co.th', port=8080)
@@ -47,7 +49,7 @@ GPIO.setup(relay8, GPIO.OUT)
 def blynk_connected():
     print("Updating values from the server...")
     blynk.sync_virtual(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12,
-                       13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25)
+                       13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35)
     print("status OK")
 
 # @blynk.on("V22")
@@ -77,9 +79,11 @@ def v2_write_handler(value):
     x2 = format(value[0])
     if x2 == "1":
         GPIO.output(relay2, GPIO.HIGH)
+        blynk.virtual_write(26, 1)
         print("relay2-work")
     else:
         GPIO.output(relay2, GPIO.LOW)
+        blynk.virtual_write(26, 0)
         print("relay2-not-work")
 
 
@@ -90,11 +94,12 @@ def v3_write_handler(value):
     if x3 == "1":
         GPIO.output(relay3, GPIO.HIGH)
         GPIO.output(relay1, GPIO.HIGH)
-        print("relay3-work")
+        blynk.virtual_write(27, 1)
         print("relay1-work")
     else:
         GPIO.output(relay3, GPIO.LOW)
         GPIO.output(relay1, GPIO.LOW)
+        blynk.virtual_write(27, 0)
         print("relay3-not-work")
 
 
@@ -105,10 +110,12 @@ def v4_write_handler(value):
     if x4 == "1":
         GPIO.output(relay4, GPIO.HIGH)
         GPIO.output(relay1, GPIO.HIGH)
+        blynk.virtual_write(28, 1)
         print("relay4-work")
     else:
         GPIO.output(relay4, GPIO.LOW)
         GPIO.output(relay1, GPIO.LOW)
+        blynk.virtual_write(28, 0)
         print("relay4-not-work")
 
 
@@ -118,9 +125,11 @@ def v5_write_handler(value):
     x5 = format(value[0])
     if x5 == "1":
         GPIO.output(relay5, GPIO.HIGH)
+        blynk.virtual_write(29, 1)
         print("relay5-work")
     else:
         GPIO.output(relay5, GPIO.LOW)
+        blynk.virtual_write(29, 0)
         print("relay5-not-work")
 
 
@@ -130,9 +139,11 @@ def v6_write_handler(value):
     x6 = format(value[0])
     if x6 == "1":
         GPIO.output(relay6, GPIO.HIGH)
+        blynk.virtual_write(30, 1)
         print("relay6-work")
     else:
         GPIO.output(relay6, GPIO.LOW)
+        blynk.virtual_write(30, 0)
         print("relay6-not-work")
 
 
@@ -142,9 +153,11 @@ def v7_write_handler(value):
     x7 = format(value[0])
     if x7 == "1":
         GPIO.output(relay7, GPIO.HIGH)
+        blynk.virtual_write(31, 1)
         print("relay7-work")
     else:
         GPIO.output(relay7, GPIO.LOW)
+        blynk.virtual_write(31, 0)
         print("relay7-not-work")
 
 
@@ -154,9 +167,11 @@ def v8_write_handler(value):
     x8 = format(value[0])
     if x8 == "1":
         GPIO.output(relay8, GPIO.HIGH)
+        blynk.virtual_write(32, 1)
         print("relay8-work")
     else:
         GPIO.output(relay8, GPIO.LOW)
+        blynk.virtual_write(32, 0)
         print("relay8-not-work")
 
 
@@ -181,10 +196,12 @@ def v10_write_handler(value):
     if x10 == "1":
         GPIO.output(relay2, GPIO.HIGH)
         blynk.virtual_write(2, 1)
+        blynk.virtual_write(26, 1)
         print("relay2-work")
     else:
         GPIO.output(relay2, GPIO.LOW)
         blynk.virtual_write(2, 0)
+        blynk.virtual_write(26, 0)
         print("relay2-not-work")
 
 
@@ -195,10 +212,12 @@ def v11_write_handler(value):
     if x11 == "1":
         GPIO.output(relay3, GPIO.HIGH)
         blynk.virtual_write(3, 1)
+        blynk.virtual_write(27, 1)
         print("relay3-work")
     else:
         GPIO.output(relay3, GPIO.LOW)
         blynk.virtual_write(3, 0)
+        blynk.virtual_write(27, 0)
         print("relay3-not-work")
 
 
@@ -209,10 +228,12 @@ def v12_write_handler(value):
     if x12 == "1":
         GPIO.output(relay4, GPIO.HIGH)
         blynk.virtual_write(4, 1)
+        blynk.virtual_write(28, 1)
         print("relay4-work")
     else:
         GPIO.output(relay4, GPIO.LOW)
         blynk.virtual_write(4, 0)
+        blynk.virtual_write(28, 0)
         print("relay4-not-work")
 
 
@@ -222,11 +243,13 @@ def v13_write_handler(value):
     x13 = format(value[0])
     if x13 == "1":
         GPIO.output(relay5, GPIO.HIGH)
+        blynk.virtual_write(29, 1)
         blynk.virtual_write(5, 1)
         print("relay5-work")
     else:
         GPIO.output(relay5, GPIO.LOW)
         blynk.virtual_write(5, 0)
+        blynk.virtual_write(29, 0)
         print("relay5-not-work")
 
 
@@ -237,10 +260,12 @@ def v14_write_handler(value):
     if x14 == "1":
         GPIO.output(relay6, GPIO.HIGH)
         blynk.virtual_write(6, 1)
+        blynk.virtual_write(30, 1)
         print("relay6-work")
     else:
         GPIO.output(relay6, GPIO.LOW)
         blynk.virtual_write(6, 0)
+        blynk.virtual_write(30, 0)
         print("relay6-not-work")
 
 
@@ -251,10 +276,12 @@ def v15_write_handler(value):
     if x15 == "1":
         GPIO.output(relay7, GPIO.HIGH)
         blynk.virtual_write(7, 1)
+        blynk.virtual_write(31, 1)
         print("relay7-work")
     else:
         GPIO.output(relay7, GPIO.LOW)
         blynk.virtual_write(7, 0)
+        blynk.virtual_write(31, 0)
         print("relay7-not-work")
 
 
@@ -267,10 +294,12 @@ def v16_write_handler(value):
         # if statustimer == '1':
         GPIO.output(relay8, GPIO.HIGH)
         blynk.virtual_write(8, 1)
+        blynk.virtual_write(32, 1)
         print("relay8-work")
     else:
         GPIO.output(relay8, GPIO.LOW)
         blynk.virtual_write(8, 0)
+        blynk.virtual_write(32, 0)
         print("relay8-not-work")
 
 
