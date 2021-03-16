@@ -17,6 +17,8 @@ blynk = BlynkLib.Blynk(BLYNK_AUTH, server='blynk.honey.co.th', port=8080)
 i2c = busio.I2C(board.SCL, board.SDA)
 sht = adafruit_shtc3.SHTC3(i2c)
 
+temperature, relative_humidity = sht.measurements
+
 
 @blynk.on("connected")
 def blynk_connected():
@@ -27,19 +29,16 @@ def blynk_connected():
 
 @blynk.on("readV40")
 def v40_read_handler():
-    temperature, relative_humidity = sht.measurements
     blynk.virtual_write(40, sht.temperature)
 
 
 @blynk.on("readV41")
 def v41_read_handler():
-    temperature, relative_humidity = sht.measurements
     blynk.virtual_write(41, sht.relative_humidity)
 
 
 while True:
     blynk.run()
-    temperature, relative_humidity = sht.measurements
     print("Temperature: %0.2f" % temperature)
     print("Humidity: %0.2f" % relative_humidity)
     print("")
