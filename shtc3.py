@@ -34,8 +34,8 @@ def v18_read_handler():
 while True:
     blynk.run()
     temperature, relative_humidity = sht.measurements
-    print("Temperature: %0.1f C" % temperature)
-    print("Humidity: %0.1f %%" % relative_humidity)
+    print("Temperature: %0.1f" % temperature)
+    print("Humidity: %0.1f" % relative_humidity)
     print("")
     time.sleep(5)
 
