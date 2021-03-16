@@ -29,12 +29,12 @@ def blynk_connected():
 
 @blynk.on("readV40")
 def v40_read_handler():
-    blynk.virtual_write(40, sht.temperature)
+    blynk.virtual_write(40, temperature)
 
 
 @blynk.on("readV41")
 def v41_read_handler():
-    blynk.virtual_write(41, sht.relative_humidity)
+    blynk.virtual_write(41, relative_humidity)
 
 
 while True:
