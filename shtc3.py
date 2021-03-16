@@ -7,6 +7,8 @@ import busio
 import board
 import adafruit_shtc3
 
+time.sleep(40)
+
 BLYNK_AUTH = 'S2nsQqctQF1oAwCumBtBJrKQZ7FdgjU4'
 
 # Initialize Blynk
