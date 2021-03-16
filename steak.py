@@ -9,7 +9,7 @@ import time
 #import adafruit_shtc3
 import RPi.GPIO as GPIO
 
-time.sleep(40)
+# time.sleep(40)
 
 BLYNK_AUTH = 'S2nsQqctQF1oAwCumBtBJrKQZ7FdgjU4'
 
@@ -27,10 +27,6 @@ relay6 = 15
 relay7 = 13
 relay8 = 11
 #statustimer = '0'
-
-x3 = ''
-x4 = ''
-
 
 GPIO.setmode(GPIO.BOARD)
 # GPIO.setmode(GPIO.BCM)
@@ -79,13 +75,13 @@ def v2_write_handler(value):
     x2 = format(value[0])
     if x2 == "1":
         GPIO.output(relay2, GPIO.HIGH)
-        blynk.virtual_write(22, 1)
+        blynk.virtual_write(22, 255)
         blynk.virtual_write(23, 0)
         print("relay2-work")
     else:
         GPIO.output(relay2, GPIO.LOW)
         blynk.virtual_write(22, 0)
-        blynk.virtual_write(23, 1)
+        blynk.virtual_write(23, 255)
         print("relay2-not-work")
 
 
