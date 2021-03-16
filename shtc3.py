@@ -7,7 +7,7 @@ import busio
 import board
 import adafruit_shtc3
 
-time.sleep(40)
+# time.sleep(40)
 
 BLYNK_AUTH = 'S2nsQqctQF1oAwCumBtBJrKQZ7FdgjU4'
 
@@ -43,4 +43,4 @@ while True:
     print("Temperature: %0.2f" % temperature)
     print("Humidity: %0.2f" % relative_humidity)
     print("")
-    time.sleep(5)
+    time.sleep(2)
