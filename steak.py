@@ -211,11 +211,13 @@ def v11_write_handler(value):
     x11 = format(value[0])
     if x11 == "1":
         GPIO.output(relay3, GPIO.HIGH)
+        GPIO.output(relay1, GPIO.HIGH)
         blynk.virtual_write(3, 1)
         blynk.virtual_write(27, 1)
         print("relay3-work")
     else:
         GPIO.output(relay3, GPIO.LOW)
+        GPIO.output(relay1, GPIO.LOW)
         blynk.virtual_write(3, 0)
         blynk.virtual_write(27, 0)
         print("relay3-not-work")
@@ -227,11 +229,13 @@ def v12_write_handler(value):
     x12 = format(value[0])
     if x12 == "1":
         GPIO.output(relay4, GPIO.HIGH)
+        GPIO.output(relay1, GPIO.HIGH)
         blynk.virtual_write(4, 1)
         blynk.virtual_write(28, 1)
         print("relay4-work")
     else:
         GPIO.output(relay4, GPIO.LOW)
+        GPIO.output(relay1, GPIO.LOW)
         blynk.virtual_write(4, 0)
         blynk.virtual_write(28, 0)
         print("relay4-not-work")
