@@ -3,7 +3,7 @@ import time
 import BlynkLib
 from gpiozero import CPUTemperature
 
-time.sleep(40)
+#time.sleep(40)
 
 # cmsensor1
 #BLYNK_AUTH = 'nD-SwPo3-WpMrvAbdksIFa4YnP14l9-A'

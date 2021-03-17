@@ -7,7 +7,7 @@ import busio
 import board
 import adafruit_shtc3
 
-time.sleep(40)
+#time.sleep(40)
 
 BLYNK_AUTH = 'S2nsQqctQF1oAwCumBtBJrKQZ7FdgjU4'
 
@@ -23,7 +23,7 @@ temperature, relative_humidity = sht.measurements
 @blynk.on("connected")
 def blynk_connected():
     print("Updating V1,V2,V3 values from the server...")
-    blynk.sync_virtual(17, 18)
+   # blynk.sync_virtual(17, 18)
     print("status OK")
 
 
@@ -39,9 +39,9 @@ def blynk_connected():
 
 while True:
     blynk.run()
-    blynk.virtual_write(17, temperature)
-    blynk.virtual_write(18, relative_humidity)
+    blynk.virtual_write(42, temperature)
+    blynk.virtual_write(43, relative_humidity)
     print("Temperature: %0.2f" % temperature)
     print("Humidity: %0.2f" % relative_humidity)
     print("")
-    time.sleep(5)
+    time.sleep(2)
